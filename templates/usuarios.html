@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+    
+    <ul>
+        {% for usuario in usuarios %}
+            <li>{{ usuario.nombre }} - {{ usuario.correo }} - {{ usuario.rol }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for usuario in usuarios %}
+            <li>
+                {{ usuario.nombre }} - {{ usuario.correo }} - {{ usuario.rol }}
+                <form method="POST" action="{{ url_for('eliminar_usuario', id=usuario.id) }}" style="display:inline;">
+                    <input type="submit" value="Eliminar">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

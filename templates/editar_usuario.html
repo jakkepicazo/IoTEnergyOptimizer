@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+</head>
+<body>
+    <h1>Editar Usuario</h1>
+    <form method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" required><br><br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" value="{{ usuario.correo }}" required><br><br>
+
+        <label for="rol">Rol:</label>
+        <select name="rol">
+            <option value="admin" {% if usuario.rol == 'admin' %}selected{% endif %}>Admin</option>
+            <option value="user" {% if usuario.rol == 'user' %}selected{% endif %}>User</option>
+        </select><br><br>
+
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>
